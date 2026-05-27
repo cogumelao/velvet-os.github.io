@@ -133,6 +133,7 @@ _Note: If deploying for the 3.10 kernel for the early Chromebook Snow releases, 
 dd if=/dev/${srcPart}1 of=/dev/${part}1 bs=1024k status=progress
 ```
 _Note. the second kernel partition is by default unused initially_
+_Note. If you have a veyron device and created the kernel partition in step 6 accordingly, don't be confused if `dd` exits with error `no space left on device` after having copied the first 16mb. The error occurs because the target partition (16mb) is smaller than the source partition (32mb), but this should not be a problem since the kernel is less than 16mb._
 
 10. sync over the boot and root filesystems
 ```
